@@ -1,0 +1,23 @@
+{
+  "name": "amazona",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --watch backend --exec node --experimental-modules backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/freewafflefries/amazona.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/freewafflefries/amazona/issues"
+  },
+  "homepage": "https://github.com/freewafflefries/amazona#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
