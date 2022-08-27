@@ -19,5 +19,11 @@
   "homepage": "https://github.com/freewafflefries/amazona#readme",
   "devDependencies": {
     "nodemon": "^2.0.19"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.0.1",
+    "express-async-handler": "^1.2.0",
+    "mongoose": "^6.5.3"
   }
 }

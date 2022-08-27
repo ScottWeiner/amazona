@@ -1,7 +1,23 @@
+import bcrypt from 'bcryptjs'
+
 export const data = {
+    users: [
+        {
+            name: 'Scott',
+            email: 'admin@example.com',
+            password: bcrypt.hashSync('12345', 8),
+            isAdmin: true
+        },
+        {
+            name: 'Wayne',
+            email: 'wayne@example.com',
+            password: bcrypt.hashSync('12345', 8),
+            isAdmin: false
+        }
+    ],
     products: [
         {
-            _id: '1',
+
             name: 'Tuckable Shirt',
             category: 'Shirts',
             image: '/images/tuckableShirt.jpg',
@@ -12,7 +28,7 @@ export const data = {
             description: 'Outstanding!'
         },
         {
-            _id: '2',
+
             name: 'Barn Clothes',
             category: 'Shirts',
             image: '/images/barnClothes.jpg',
@@ -23,7 +39,7 @@ export const data = {
             description: 'Good shirt for chorin\' in the barn'
         },
         {
-            _id: '3',
+
             name: 'Skid Overalls',
             category: 'Shirts',
             image: '/images/skidOveralls.jpg',
@@ -34,7 +50,6 @@ export const data = {
             description: 'I hate the world. I hate my parents. I hate myself.'
         },
         {
-            _id: '4',
             name: 'Sudbury Blueberry Bulldogs Jersey',
             category: 'Shirts',
             image: '/images/blueberryBulldogs.jpg',
@@ -45,7 +60,7 @@ export const data = {
             description: 'Great jersey for those that never want to lose again'
         },
         {
-            _id: '5',
+
             name: 'Pomegranite Pomeranians Jersey',
             category: 'Shirts',
             image: '/images/pomegranatePoms.jpg',
@@ -56,7 +71,7 @@ export const data = {
             description: 'Settle down'
         },
         {
-            _id: '6',
+
             name: 'Letterkenny Irish Jersey',
             category: 'Shirts',
             image: '/images/letterkennyIrish.jpg',
