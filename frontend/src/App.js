@@ -7,6 +7,7 @@ import { signOutUser } from './store/actions/userActions.js'
 import { BrowserRouter, Route } from "react-router-dom";
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
+import RegisterScreen from "./screens/RegisterScreen";
 
 
 
@@ -54,6 +55,7 @@ function App() {
           <Route path="/" exact component={HomeScreen} />
           <Route path="/cart/:id?/" component={CartScreen} />
           <Route path='/signin' component={SignInScreen} />
+          <Route path='/register' component={RegisterScreen} />
         </main>
         <footer className="row center">
           Some rights reserved.
