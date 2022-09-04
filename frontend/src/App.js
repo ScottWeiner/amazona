@@ -8,6 +8,9 @@ import { BrowserRouter, Route } from "react-router-dom";
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
 import RegisterScreen from "./screens/RegisterScreen";
+import ShippingAddressScreen from "./screens/ShippingAddressScreen";
+import PaymentMethodScreen from "./screens/PaymentMethodScreen";
+import PlaceOrderScreen from "./screens/PlaceOrderScreen";
 
 
 
@@ -56,6 +59,9 @@ function App() {
           <Route path="/cart/:id?/" component={CartScreen} />
           <Route path='/signin' component={SignInScreen} />
           <Route path='/register' component={RegisterScreen} />
+          <Route path='/shipping' component={ShippingAddressScreen} />
+          <Route path='/payment' component={PaymentMethodScreen} />
+          <Route path='/placeorder' component={PlaceOrderScreen} />
         </main>
         <footer className="row center">
           Some rights reserved.

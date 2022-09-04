@@ -19,7 +19,7 @@ export default function RegisterScreen(props) {
     const { loading, error } = user
 
 
-    const redirect = props.location.search ? props.location.search.split('?')[1] : '/'
+    const redirect = props.location.search ? props.location.search.split('redirect=')[1] : '/'
 
     useEffect(() => {
         if (user._id) {
