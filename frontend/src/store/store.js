@@ -5,17 +5,21 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import { productListReducer, productDetailsReducer } from './reducers/productReducer'
 import { cartReducer } from './reducers/cartReducer'
 import { userReducer } from './reducers/userReducer'
+import { orderReducer } from './reducers/orderReducer'
 
 const reducer = combineReducers({
     productList: productListReducer,
     productDetails: productDetailsReducer,
     cart: cartReducer,
-    user: userReducer
+    user: userReducer,
+    order: orderReducer
 })
 
 const initialState = {
     cart: {
-        cartItems: localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : []
+        cartItems: localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : [],
+        shippingAddress: localStorage.getItem('shippingAddress') ? JSON.parse(localStorage.getItem('shippingAddress')) : {},
+        paymentMethod: 'PayPal'
     },
     user: localStorage.getItem('userData') ? JSON.parse(localStorage.getItem('userData')) : {}
 
