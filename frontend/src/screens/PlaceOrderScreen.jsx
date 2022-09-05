@@ -16,7 +16,7 @@ export default function PlaceOrderScreen(props) {
     const { shippingAddress, paymentMethod, cartItems } = cart
 
     const order = useSelector(state => state.order)
-    const { loading, error, orderItems, success } = order
+    const { loading, error, success } = order
 
     if (!paymentMethod) {
         props.history.push('/payment')
@@ -34,10 +34,10 @@ export default function PlaceOrderScreen(props) {
 
     useEffect(() => {
         if (success) {
-            props.history.push(`/order/${order._id}`)
+            props.history.push(`/orders/${order._id}`)
             dispatch({ type: ORDER_CREATE_RESET })
         }
-    }, [success, order, props.history, dispatch])
+    }, [success, order, dispatch, props.history])
 
     return (
         <div>

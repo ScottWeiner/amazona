@@ -5,14 +5,17 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import { productListReducer, productDetailsReducer } from './reducers/productReducer'
 import { cartReducer } from './reducers/cartReducer'
 import { userReducer } from './reducers/userReducer'
-import { orderReducer } from './reducers/orderReducer'
+import { orderDetailsReducer, orderReducer, orderPayReducer, orderHistoryReducer } from './reducers/orderReducer'
 
 const reducer = combineReducers({
     productList: productListReducer,
     productDetails: productDetailsReducer,
     cart: cartReducer,
     user: userReducer,
-    order: orderReducer
+    order: orderReducer,
+    orderDetails: orderDetailsReducer,
+    orderPayment: orderPayReducer,
+    orderHistory: orderHistoryReducer
 })
 
 const initialState = {
