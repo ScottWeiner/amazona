@@ -13,6 +13,10 @@ import PaymentMethodScreen from "./screens/PaymentMethodScreen";
 import PlaceOrderScreen from "./screens/PlaceOrderScreen";
 import OrderScreen from './screens/OrderScreen';
 import OrderHistoryScreen from "./screens/OrderHistoryScreen";
+import ProfileScreen from './screens/ProfileScreen';
+import PrivateRoute from './components/PrivateRoute';
+import AdminRoute from "./components/AdminRoute";
+import ProductListScreen from './screens/ProductListScreen'
 
 
 
@@ -46,6 +50,9 @@ function App() {
                 <Link to="#">{user.name}<i className="fa fa-caret-down"></i>{' '}</Link>
                 <ul className="dropdown-content">
                   <li>
+                    <Link to='/profile'>Profile</Link>
+                  </li>
+                  <li>
                     <Link to='/orderhistory'>History</Link>
                   </li>
                   <li>
@@ -56,12 +63,31 @@ function App() {
             ) : (
               <Link to="/signin">Sign In</Link>
             )}
+            {user && user.isAdmin && (
+              <div className="dropdown">
+                <Link to="#admin">Admin {' '} <i className="fa fa-caret-down"></i></Link>
+                <ul className="dropdown-content">
+                  <li>
+                    <Link to="/dashboard">Dashboard</Link>
+                  </li>
+                  <li>
+                    <Link to="/productlist">Products</Link>
+                  </li>
+                  <li>
+                    <Link to="/orderlist">Orders</Link>
+                  </li>
+                  <li>
+                    <Link to="/userlist">Users</Link>
+                  </li>
+                </ul>
+              </div>
+
+            )}
           </div>
 
         </header>
         <main>
           <Route path="/product/:id" component={ProductScreen} />
-          <Route path="/" exact component={HomeScreen} />
           <Route path="/cart/:id?/" component={CartScreen} />
           <Route path='/signin' component={SignInScreen} />
           <Route path='/register' component={RegisterScreen} />
@@ -70,6 +96,9 @@ function App() {
           <Route path='/placeorder' component={PlaceOrderScreen} />
           <Route path='/orders/:id' component={OrderScreen} />
           <Route path='/orderhistory' component={OrderHistoryScreen} />
+          <PrivateRoute path='/profile' component={ProfileScreen} />
+          <AdminRoute path='/productlist' component={ProductListScreen} />
+          <Route path="/" exact component={HomeScreen} />
         </main>
         <footer className="row center">
           Some rights reserved.

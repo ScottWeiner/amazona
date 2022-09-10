@@ -56,4 +56,40 @@ userRouter.post('/register', expressAsyncHandler(async (req, res) => {
 
 }))
 
+userRouter.get('/:id', expressAsyncHandler(async (req, res) => {
+    console.log('You hit the user/:id route!')
+    const user = await UserModel.findById(req.params.id)
+
+    if (!user || !user._id) {
+        res.status(404).send({ message: "something is fucked up. Couldn't find that user" })
+    } else {
+
+        res.send(user)
+    }
+}))
+
+userRouter.put('/profile', expressAsyncHandler(async (req, res) => {
+    console.log('You hit the user/profile route!')
+    console.log('req.user', req.body)
+    const user = await UserModel.findById(req.body.userId)
+    if (!user || !user._id) {
+        res.status(404).send({ message: "something is fucked up. Couldn't find that user" })
+    }
+    if (user) {
+        user.name = req.body.name || user.name,
+            user.email = req.body.email || user.email
+        if (req.body.password) {
+            user.password = bcrypt.hashSync(req.body.password, 8)
+        }
+        const updatedUser = await user.save()
+        res.send({
+            _id: updatedUser._id,
+            name: updatedUser.name,
+            email: updatedUser.email,
+            isAdmin: updatedUser.isAdmin,
+            token: generateToken(updatedUser)
+        })
+    }
+}))
+
 export default userRouter
